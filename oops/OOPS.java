@@ -20,7 +20,7 @@ public class OOPS {
 
 class BankAccount {
     public String username; // visible and accessable to every one
-    private String password; // makes unaccessaible to othe class or pakages
+    private String password; // makes unaccessable to othe class or pakages
 
     public void setpassword(String var) {
         password = var;
@@ -49,3 +49,7 @@ class Pen {
         tip = newTip;
     }
 }
+
+
+// Encapsulation
+
