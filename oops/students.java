@@ -29,12 +29,23 @@ class Student {
     String password;
     int marks[];
 
-    // *copy constructor */
+    // *copy constructor */ shallow copy 
+    // Student(Student s1) {
+    //     marks = new int[3];
+    //     this.name = s1.name;
+    //     this.rollNo = s1.rollNo;
+    //     this.marks = s1.marks;
+    // }
+
+
+    //* deep copy constructor
     Student(Student s1) {
         marks = new int[3];
         this.name = s1.name;
         this.rollNo = s1.rollNo;
-        this.marks = s1.marks;
+        for (int i = 0; i < marks.length; i++) {
+            this.marks[i] = s1.marks[i];
+        }
     }
 
     // * constructor
