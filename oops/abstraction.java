@@ -5,14 +5,21 @@ public class abstraction {
         Horse h = new Horse();
         h.eat();
         h.walk();
+        System.out.println(h.color);
 
-        Chiken c = new Chiken();
+        Chicken c = new Chicken();
         c.eat();
         c.walk();
     }
 }
 
 abstract class Animal {
+    String color;
+
+    Animal() {
+        color = "Brown";
+    }
+
     void eat() {
         System.out.println("animal eats");
     }
@@ -22,12 +29,22 @@ abstract class Animal {
 }
 
 class Horse extends Animal {
+
+    void changeColor() {
+        color = "DarkBrown";
+    }
+
     void walk() {
         System.out.println("walks on four legs");
     }
 }
 
-class Chiken extends Animal {
+class Chicken extends Animal {
+
+    void changeColor() {
+        color = "yellow";
+    }
+
     void walk() {
         System.out.println("walks on two legs");
     }
