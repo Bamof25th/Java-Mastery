@@ -16,18 +16,17 @@ public class girdWays {
     }
 
     // public static int gridwaysMath(int n, int m) {
-    //     // by premutation
+    // // by premutation
 
     // }
     public static int uniquePaths(int m, int n) {
-        //\
+        // \
 
-        int i = permutation(n-1);
-        int j = permutation(m-1);
+        int i = permutation(n - 1);
+        int j = permutation(m - 1);
 
-        int ans  =  permutation(n-1+m-1)/(i*j);
-        return ans; 
-
+        int ans = permutation(n - 1 + m - 1) / (i * j);
+        return ans;
 
     }
 
@@ -45,6 +44,6 @@ public class girdWays {
     public static void main(String[] args) {
         int n = 10, m = 10;
         // System.out.println(gridways(0, 0, n, m));
-        System.out.println( permutation(18));
+        System.out.println(uniquePaths(m, n));
     }
 }
