@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class twodarrListo {
     public static void main(String[] args) {
 
-        ArrayList<ArrayList<String>> grceryList = new ArrayList();
+        ArrayList<ArrayList<String>> grceryList = new ArrayList<>();
 
         ArrayList<String> backeryList = new ArrayList<String>();
 
