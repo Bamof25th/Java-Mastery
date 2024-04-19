@@ -115,6 +115,20 @@ public class LinkedList {
         System.out.println("null");
     }
 
+    public int iterativeSearch(int key) {
+        Node temp = head;
+        int i = 0;
+
+        while (temp != null) {
+            if (temp.data == key) {
+                return i;
+            }
+            temp = temp.next;
+            i++;
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         // *main function code
@@ -125,9 +139,10 @@ public class LinkedList {
         ll.addLast(3);
         ll.addLast(4);
         ll.add(2, 99);
-        ll.print();
+        // ll.print();
+        System.out.println(ll.iterativeSearch(9));
         // System.out.println(ll.removeFirst());
-        System.out.println(ll.removeLast());
+        // System.out.println(ll.removeLast());
         ll.print();
         // System.out.println(ll.size);
     }
