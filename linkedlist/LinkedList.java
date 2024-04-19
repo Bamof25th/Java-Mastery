@@ -129,6 +129,69 @@ public class LinkedList {
         return -1;
     }
 
+    public int helper(int k, Node head) {
+        if (head == null) {
+            return -1;
+        }
+
+        if (head.data == k) {
+            return 0;
+        }
+
+        int idx = helper(k, head.next);
+        if (idx == -1) {
+            return -1;
+        }
+        return idx + 1;
+
+    }
+
+    public int recurrSearch(int k) {
+        return helper(k, head);
+    }
+
+    public void reverse() {
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        head = prev;
+
+    }
+
+    public void RemoveNthNodeFromEnd(int n) {
+        // calculate size of lonkedlist
+        int s = 0;
+        Node temp = head;
+
+        while (temp != null) {
+            temp = temp.next;
+            s++;
+        }
+        if (n == s) {
+            head = head.next;// remove first
+            return ;
+        }
+
+        // s-n
+        int i = 1;
+        int iToFind = s - n;
+        Node prev = head;
+        while (i < iToFind) {
+            prev = prev.next;
+            i++;
+        }
+        prev.next = prev.next.next;
+        return ;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         // *main function code
@@ -140,7 +203,9 @@ public class LinkedList {
         ll.addLast(4);
         ll.add(2, 99);
         // ll.print();
-        System.out.println(ll.iterativeSearch(9));
+        System.out.println(ll.recurrSearch(3));
+        ll.RemoveNthNodeFromEnd(3);
+        // ll.reverse();
         // System.out.println(ll.removeFirst());
         // System.out.println(ll.removeLast());
         ll.print();
