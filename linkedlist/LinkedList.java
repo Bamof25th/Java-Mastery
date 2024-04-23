@@ -243,23 +243,49 @@ public class LinkedList {
 
     }
 
+    // public static void main(String[] args) {
+    //     LinkedList ll = new LinkedList();
+    //     // *main function code
+    //     // ll.head = new Node(1);
+    //     // ll.head.next = new Node(2);
+    //     ll.addFirst(2);
+    //     ll.addFirst(1);
+    //     ll.addLast(3);
+    //     ll.addLast(3);
+    //     ll.addLast(2);
+    //     ll.addLast(1);
+    //     // ll.add(2, 99);
+    //     // ll.print();
+    //     System.out.println(ll.recurrSearch(3));
+    //     // ll.RemoveNthNodeFromEnd(3);
+    //     // ll.reverse();
+    //     // System.out.println(ll.removeFirst());
+    //     // System.out.println(ll.removeLast());
+    //     ll.print();
+    //     boolean ans = ll.isPalindromeLinkedlist();
+    //     System.out.println(ans);
+    //     // System.out.println(ll.size);
+    // }
+
+    public static boolean hasCycle() {
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
-        // *main function code
-        // ll.head = new Node(1);
-        // ll.head.next = new Node(2);
-        ll.addFirst(2);
-        ll.addFirst(1);
-        ll.addLast(3);
-        ll.addLast(4);
-        ll.add(2, 99);
-        // ll.print();
-        System.out.println(ll.recurrSearch(3));
-        ll.RemoveNthNodeFromEnd(3);
-        // ll.reverse();
-        // System.out.println(ll.removeFirst());
-        // System.out.println(ll.removeLast());
-        ll.print();
-        // System.out.println(ll.size);
+        head = new Node(1);
+        head.next  = new Node(2);
+        head.next.next  = new Node(3);
+        head.next.next.next  = head;
+
+        System.out.println(hasCycle());
     }
 }
