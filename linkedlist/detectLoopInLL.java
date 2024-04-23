@@ -1,19 +1,18 @@
 package linkedlist;
 
-import java.util.*;
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-        next = null;
-    }
-}
 
 public class detectLoopInLL {
-    public boolean hasCycle(ListNode head) {
+    // inner calss
+    public static class ListNode {
+        int val;
+        ListNode next;
+    
+        ListNode(int x) {
+            val = x;
+            next = null;
+        }
+    }
+    public static boolean hasCycle(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
 
@@ -28,9 +27,12 @@ public class detectLoopInLL {
     }
 
     public static void main(String[] args) {
-        head = new Node(1);
-        head.next = new Node(2);
-        head.next.next = new Node(3);
-        head.next.next.next = new Node(3);
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = head;
+
+        System.out.println(hasCycle(head));
     }
+
 }
