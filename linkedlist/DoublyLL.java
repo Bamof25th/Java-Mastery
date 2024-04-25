@@ -42,9 +42,9 @@ public class DoublyLL {
             System.out.println("null");
             return Integer.MIN_VALUE;
         }
-        if(size == 1){
+        if (size == 1) {
             int data = head.data;
-            head = tail =  null;
+            head = tail = null;
             size--;
             return data;
 
@@ -66,6 +66,21 @@ public class DoublyLL {
         System.out.println("null");
     }
 
+    // reverse
+    public void reverse() {
+        Node curr = head;
+        Node prev = null;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            curr.prev = next;
+            prev = curr;
+            curr = next;
+        }
+        head = prev ;
+    }
+
     public static void main(String[] args) {
         DoublyLL dll = new DoublyLL();
 
@@ -73,10 +88,11 @@ public class DoublyLL {
         dll.addFirst(2);
         dll.addFirst(1);
         print();
-        System.out.println(dll.size);
-        dll.removeFirst();
+        // System.out.println(dll.size);
+        // dll.removeFirst();
+        dll.reverse();
         print();
-        System.out.println(dll.size);
-       
+        // System.out.println(dll.size);
+
     }
 }
