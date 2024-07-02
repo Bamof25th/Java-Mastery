@@ -11,10 +11,11 @@ public class kadansAlgo {
         int cs = 0;
         for (int i = 0; i < nums.length; i++) {
             cs += nums[i];
+            ms = Math.max(cs, ms);
             if (cs < 0) {
                 cs = 0;
             }
-            ms = Math.max(cs, ms);
+            // cs = Math.max(nums[i], cs + nums[i]);
 
         }
         System.out.println(ms);
