@@ -1,14 +1,14 @@
 package queues;
 
 
-public class QueueLL {
-    static class Node {
-        int data;
+public class QueueLL<T> {
+    static class Node <T>{
+        T data;
         Node next;
 
-        Node(int data) {
+        Node(T data) {
             this.data = data;
-            this.next = null;
+            this.next = null;  
         }
     }
 
@@ -30,12 +30,12 @@ public class QueueLL {
             tail = newNode;
         }
 
-        public static int remove() {
+        public static T remove() {
             if (isEmpty()) {
                 System.out.println(" queue is empty");
                 return -1;
             }
-            int front = head.data;
+            T front = head.data;
             if (tail == head) {
                 tail = head = null;
             } else {

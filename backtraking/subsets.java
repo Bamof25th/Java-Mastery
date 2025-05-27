@@ -43,7 +43,7 @@ public class subsets {
     public static void main(String[] args) {
         String str = "abc";
 
-        // findSubsets(str, "", 0);
-        findPermutation(str, "");
+        findSubsets(str, "", 0);
+        // findPermutation(str, "");
     }
 }
