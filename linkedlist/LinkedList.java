@@ -15,9 +15,9 @@ public class LinkedList {
         }
     }
 
-    public static Node head;
-    public static Node tail;
-    public static int size;
+    public Node head;
+    public Node tail;
+    public int size;
 
     public void addFirst(int data) {
 
@@ -189,7 +189,7 @@ public class LinkedList {
             i++;
         }
         prev.next = prev.next.next;
-        return;
+        // Fix: Removed unnecessary return statement as this is a void method
     }
 
     // *slow fast approach
@@ -244,48 +244,58 @@ public class LinkedList {
     }
 
     // public static void main(String[] args) {
-    //     LinkedList ll = new LinkedList();
-    //     // *main function code
-    //     // ll.head = new Node(1);
-    //     // ll.head.next = new Node(2);
-    //     ll.addFirst(2);
-    //     ll.addFirst(1);
-    //     ll.addLast(3);
-    //     ll.addLast(3);
-    //     ll.addLast(2);
-    //     ll.addLast(1);
-    //     // ll.add(2, 99);
-    //     // ll.print();
-    //     System.out.println(ll.recurrSearch(3));
-    //     // ll.RemoveNthNodeFromEnd(3);
-    //     // ll.reverse();
-    //     // System.out.println(ll.removeFirst());
-    //     // System.out.println(ll.removeLast());
-    //     ll.print();
-    //     boolean ans = ll.isPalindromeLinkedlist();
-    //     System.out.println(ans);
-    //     // System.out.println(ll.size);
+    // LinkedList ll = new LinkedList();
+    // // *main function code
+    // // ll.head = new Node(1);
+    // // ll.head.next = new Node(2);
+    // ll.addFirst(2);
+    // ll.addFirst(1);
+    // ll.addLast(3);
+    // ll.addLast(3);
+    // ll.addLast(2);
+    // ll.addLast(1);
+    // // ll.add(2, 99);
+    // // ll.print();
+    // System.out.println(ll.recurrSearch(3));
+    // // ll.RemoveNthNodeFromEnd(3);
+    // // ll.reverse();
+    // // System.out.println(ll.removeFirst());
+    // // System.out.println(ll.removeLast());
+    // ll.print();
+    // boolean ans = ll.isPalindromeLinkedlist();
+    // System.out.println(ans);
+    // // System.out.println(ll.size);
     // }
 
-    public static boolean hasCycle() {
+    // Fix: Changed from static method to instance method to access non-static field
+    // 'head'
+    // This method detects if there's a cycle in the linked list using Floyd's
+    // algorithm
+    public boolean hasCycle() {
         Node slow = head;
         Node fast = head;
 
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if(slow == fast){
+            if (slow == fast) {
                 return true;
             }
         }
         return false;
     }
-    public static void main(String[] args) {
-        head = new Node(1);
-        head.next  = new Node(2);
-        head.next.next  = new Node(3);
-        head.next.next.next  = head;
 
-        System.out.println(hasCycle());
+    public static void main(String[] args) {
+        // Fix: Create an instance of LinkedList to access non-static methods and fields
+        LinkedList ll = new LinkedList();
+
+        // Create a linked list with a cycle for testing
+        ll.head = new Node(1);
+        ll.head.next = new Node(2);
+        ll.head.next.next = new Node(3);
+        ll.head.next.next.next = ll.head; // Creates a cycle back to the first node
+
+        // Test the cycle detection method
+        System.out.println(ll.hasCycle());
     }
 }

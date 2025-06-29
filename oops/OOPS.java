@@ -19,8 +19,8 @@ public class OOPS {
 }
 
 class BankAccount {
-    public String username; // visible and accessable to every one
-    private String password; // makes unaccessable to othe class or pakages
+    public String username; // visible and accessible to every one
+    private String password; // makes unaccessible to other class or packages
 
     public void setpassword(String var) {
         password = var;

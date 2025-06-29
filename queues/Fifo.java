@@ -12,11 +12,11 @@ public class Fifo {
             rear = -1;
         }
 
-        public static boolean isEmpty() {
+        public  boolean isEmpty() {
             return rear == -1;
         }
 
-        public static void add(int data) {
+        public  void add(int data) {
             if (rear == size - 1) {
                 System.out.println("queue is full");
                 return;
@@ -25,7 +25,7 @@ public class Fifo {
             arr[rear] = data;
         }
 
-        public static int remove() {
+        public  int remove() {
             if (isEmpty()) {
                 System.out.println("empty queue");
 
@@ -39,7 +39,7 @@ public class Fifo {
             return front;
         }
 
-        public static int peek() {
+        public  int peek() {
             if (isEmpty()) {
                 System.out.println("empty queue");
 

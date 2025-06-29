@@ -4,7 +4,7 @@ package queues;
 public class QueueLL<T> {
     static class Node <T>{
         T data;
-        Node next;
+        Node<T> next;
 
         Node(T data) {
             this.data = data;
@@ -12,16 +12,16 @@ public class QueueLL<T> {
         }
     }
 
-    static class QueueC {
-        static Node head = null;
-        static Node tail = null;
+    class QueueC {
+        Node<T> head = null;
+        Node<T> tail = null;
 
-        public static boolean isEmpty() {
+        public boolean isEmpty() {
             return head == null && tail == null;
         }
 
-        public static void add(int data) {
-            Node newNode = new Node(data);
+        public void add(T data) {
+            Node<T> newNode = new Node<>(data);
             if (head == null) {
                 head = tail = newNode;
                 return;
@@ -30,10 +30,10 @@ public class QueueLL<T> {
             tail = newNode;
         }
 
-        public static T remove() {
+        public T remove() {
             if (isEmpty()) {
                 System.out.println(" queue is empty");
-                return -1;
+                return null;
             }
             T front = head.data;
             if (tail == head) {
@@ -44,10 +44,10 @@ public class QueueLL<T> {
             return front;
         }
 
-        public static int peek() {
+        public T peek() {
             if (isEmpty()) {
                 System.out.println(" queue is empty");
-                return -1;
+                return null;
             }
 
             return head.data;
@@ -55,7 +55,8 @@ public class QueueLL<T> {
     }
 
     public static void main(String[] args) {
-        QueueC q =  new QueueC();
+        QueueLL<Integer> queueLL = new QueueLL<>();
+        QueueLL<Integer>.QueueC q = queueLL.new QueueC();
         q.add(1);
         q.add(2);
         q.add(3);
