@@ -78,7 +78,7 @@ public class DoublyLL {
             prev = curr;
             curr = next;
         }
-        head = prev ;
+        head = prev;
     }
 
     public static void main(String[] args) {

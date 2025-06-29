@@ -2,7 +2,7 @@ package hashmap;
 
 import java.util.HashMap;
 
-public class DupeinString {
+public class DupeString {
 
     public static void main(String[] args) {
         String str = "ankjhgfha";

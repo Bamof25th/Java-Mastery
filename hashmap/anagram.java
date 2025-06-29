@@ -5,11 +5,12 @@ import java.util.HashMap;
 public class anagram {
     public static boolean isAnagram(String str1, String str2) {
         // Your code goes here
-        HashMap<,Integer> hm = new HashMap<>();
+        HashMap<Character, Integer> hm = new HashMap<>();
         int i = 0;
-        while(i < str1.length()){
+        while (i < str1.length()) {
             hm.put(str1.charAt(i), 1);
         }
+        return false;
 
     }
 
